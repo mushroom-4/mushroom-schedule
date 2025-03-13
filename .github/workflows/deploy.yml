@@ -18,7 +18,7 @@ jobs:
         env:
           AWS_REGION: us-east-1
         run: |
-          aws ecr-public get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin public.ecr.aws
+          aws ecr-public get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin public.ecr.aws/p5g9k3t8/mutt-scheduler
       - name: Build and Push Docker image
         env:
           ECR_REGISTRY: public.ecr.aws
