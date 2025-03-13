@@ -1,26 +1,24 @@
 server:
-  port: 8081
+  port: ${SPRING_PORT}
 
 spring:
   rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
+    host: ${RABBIT_MQ_HOST}
+    port: ${RABBIT_MQ_PORT}
+    username: ${RABBIT_MQ_USERNAME}
+    password: ${RABBIT_MQ_PASSWORD}
 
     listener:
       simple:
         concurrency: 5
         max-concurrency: 10
         prefetch: 1
-
   application:
     name: mushroom-schedule
-
   datasource:
-    url: jdbc:mysql://localhost:3306/mushroom
-    username: root
-    password: testroot1234!@#$
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
