@@ -20,7 +20,7 @@ public class Scheduling {
     private final RabbitTemplate rabbitTemplate;
 
     @Async
-    @Scheduled(cron = "0 */1 * * * *") // 매 5분마다 (정각 기준)
+    @Scheduled(cron = "0 */10 * * * *") // 매 5분마다 (정각 기준) (cron = "0 */10 * * * *")
     @Transactional(readOnly = false)
     public void startAuctions() {
         LocalDateTime now = LocalDateTime.now();
@@ -31,7 +31,7 @@ public class Scheduling {
     }
 
     @Async
-    @Scheduled(cron = "0 */1 * * * *") // 매 5분마다 (정각 기준)
+    @Scheduled(cron = "0 */10  * * * *") // 매 5분마다 (정각 기준)
     @Transactional(readOnly = false)
     public void completeAuctions() {
         LocalDateTime now = LocalDateTime.now();
@@ -42,7 +42,7 @@ public class Scheduling {
     }
 
     @Async
-    @Scheduled(cron = "0 */1 * * * *")
+    @Scheduled(cron = "0 */10 * * * *")
     public void createNoticeStartTime() {
         LocalDateTime now = LocalDateTime.now();
         log.info("createNoticeStartTime() start time: {}", now);
@@ -51,7 +51,7 @@ public class Scheduling {
         log.info("createNoticeStartTime() end time: {}", now);
     }
     @Async
-    @Scheduled(cron = "0 */1 * * * *")
+    @Scheduled(cron = "0 */10  * * * *")
     public void createNoticeEndTime() {
         LocalDateTime now = LocalDateTime.now();
         log.info("createNoticeEndTime() start time: {}", now);
